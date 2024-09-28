@@ -4,6 +4,10 @@ let ol = document.querySelector(".catsInfo");
 let btn = document.querySelector("button");
 let spa = document.querySelector(".catsNum");
 
+function inpLength() {
+  return inp.length
+}
+
 let catsRaseLista = ["BIBI", "NINI", "KIKI", "MIMI", "SISI"];
 let catsAllInfo = [];
 
@@ -32,10 +36,13 @@ li.addEventListener('click', done)
 
 };
 
-btn.addEventListener("click",(e)=>{
+function clickMe() {
+  if(inpLength > 0){
     e.preventDefault();
     registerCats()
       inp.value = ''
-})
-    
+  }
+}
+
+btn.addEventListener("click", clickMe)
 
