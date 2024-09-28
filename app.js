@@ -3,10 +3,11 @@ let select = document.querySelector("#catsRace");
 let ol = document.querySelector(".catsInfo");
 let btn = document.querySelector("button");
 let spa = document.querySelector(".catsNum");
-
+/* 
 function inpLength() {
-  return inp.length
-}
+  return inp.value.length
+} */
+const inpLength = () => inp.value.length;
 
 let catsRaseLista = ["BIBI", "NINI", "KIKI", "MIMI", "SISI"];
 let catsAllInfo = [];
@@ -18,31 +19,25 @@ for (getRase of catsRaseLista) {
   select.appendChild(raceInfo);
 }
 
-
-
 let registerCats = () => {
-    
+  inp.value = "";
   let li = document.createElement("li");
   li.textContent = `Name: ${inp.value} Race: ${select.value}`;
   ol.appendChild(li);
-  catsAllInfo.push({getRase});
+  catsAllInfo.push({ getRase });
   spa.innerHTML = catsAllInfo.length;
-  
-li.addEventListener('click', done)
+
+  li.addEventListener("click", done);
   function done() {
-    li.classList.add('done')
+    li.classList.add("done");
   }
-
-
 };
 
-function clickMe() {
-  if(inpLength > 0){
-    e.preventDefault();
-    registerCats()
-      inp.value = ''
+function clickMe(e) {
+  e.preventDefault();
+  if (inpLength() > 0) {
+    registerCats();
   }
 }
 
-btn.addEventListener("click", clickMe)
-
+btn.addEventListener("click", clickMe);
